@@ -153,20 +153,10 @@ def parser(number, file_name):
         for user in all_participants:
             if user.username:
                 username= user.username
-            else:
-                username= ""
-            if user.first_name:
-                first_name= user.first_name
-            else:
-                first_name= ""
-            if user.last_name:
-                last_name= user.last_name
-            else:
-                last_name= ""
-            name= (first_name + ' ' + last_name).strip()
-            writer.writerow([username,user.id,user.access_hash,name,target_group.title, target_group.id])      
+                writer.writerow([username])      
     print(gr+'[+] Members scraped successfully.')
 
 
 number = sys.argv[1]
-parser(number, "members.csv")
+file_name = sys.argv[2]
+parser(number, file_name)
